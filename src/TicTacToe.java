@@ -8,6 +8,8 @@ public class TicTacToe {
     private Tile t7;
     private Tile t8;
     private Tile t9;
+    private Player player;
+    private Player ai;
 
     public TicTacToe () {
         t1 = new Tile ("corner", 1);
@@ -22,6 +24,20 @@ public class TicTacToe {
 
     }
 
+    public void play() {
+        if (!player.getIcon().equals(null)) {
+            gameWindow.replaceScreen("START"); //gameWindow is frame
+        }
+    }
+
+
+    public void aiMove() {
+
+    }
+
+    private int checkWin() {
+        
+    }
     private int checkHorizontal(Tile t) {
         int num = t.getPlace();
         int row = 0;
