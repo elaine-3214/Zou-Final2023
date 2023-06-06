@@ -79,35 +79,31 @@ public class TicTacToe {
                     Tile temp = (Tile) playerPlace.get(i);
                     int num = 0;
                     pathToBlock = 0;
-                    if (temp.getType().equals("corner") || temp.getType().equals("center")) {  //corner tiles
-                        num = checkHorizontal(temp);
+                    num = checkHorizontal(temp);
+                    if (num == 0) {
+                        num = checkVertical(temp);
                         if (num == 0) {
-                            num = checkVertical(temp);
-                            if (num == 0) {
-                                num = checkDiagonal(temp);
-                                if (num == 0) {             //nothing to block
-                                    int rand = (int) (Math.random() * 9) + 1;
-                                    if (t1.getPlace() == rand && t1.getTaken().equals("no")) {
-                                        next = t1;
-                                    } else if (t2.getPlace() == rand && t2.getTaken().equals("no")) {
-                                        next = t2;
-                                    } else if (t3.getPlace() == rand && t3.getTaken().equals("no")) {
-                                        next = t3;
-                                    } else if (t4.getPlace() == rand && t4.getTaken().equals("no")) {
-                                        next = t4;
-                                    } else if (t5.getPlace() == rand && t5.getTaken().equals("no")) {
-                                        next = t5;
-                                    } else if (t6.getPlace() == rand && t5.getTaken().equals("no")) {
-                                        next = t6;
-                                    } else if (t7.getPlace() == rand && t5.getTaken().equals("no")) {
-                                        next = t7;
-                                    } else if (t8.getPlace() == rand && t5.getTaken().equals("no")) {
-                                        next = t8;
-                                    } else if (t9.getPlace() == rand && t5.getTaken().equals("no")) {
-                                        next = t9;
-                                    }
-                                } else {
-                                    pathToBlock = num;
+                            num = checkDiagonal(temp);
+                            if (num == 0) {             //nothing to block
+                                int rand = (int) (Math.random() * 9) + 1;
+                                if (t1.getPlace() == rand && t1.getTaken().equals("no")) {
+                                    next = t1;
+                                } else if (t2.getPlace() == rand && t2.getTaken().equals("no")) {
+                                    next = t2;
+                                } else if (t3.getPlace() == rand && t3.getTaken().equals("no")) {
+                                    next = t3;
+                                } else if (t4.getPlace() == rand && t4.getTaken().equals("no")) {
+                                    next = t4;
+                                } else if (t5.getPlace() == rand && t5.getTaken().equals("no")) {
+                                    next = t5;
+                                } else if (t6.getPlace() == rand && t5.getTaken().equals("no")) {
+                                    next = t6;
+                                } else if (t7.getPlace() == rand && t5.getTaken().equals("no")) {
+                                    next = t7;
+                                } else if (t8.getPlace() == rand && t5.getTaken().equals("no")) {
+                                    next = t8;
+                                } else if (t9.getPlace() == rand && t5.getTaken().equals("no")) {
+                                    next = t9;
                                 }
                             } else {
                                 pathToBlock = num;
@@ -115,6 +111,8 @@ public class TicTacToe {
                         } else {
                             pathToBlock = num;
                         }
+                    } else {
+                        pathToBlock = num;
                     }
                 }
                 if (pathToBlock != 0) {
@@ -326,7 +324,7 @@ public class TicTacToe {
                 if (t2.getPlace() != num && t2.getTaken().equals("player")) {
                     path = 1; //path 1
                 }
-                if (t1.getPlace() != num && t1.getTaken().equals("player")) {
+                if (t3.getPlace() != num && t3.getTaken().equals("player")) {
                     path = 1; //path 1
                 }
             }
